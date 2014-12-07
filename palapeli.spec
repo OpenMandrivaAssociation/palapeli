@@ -1,6 +1,6 @@
 Name:		palapeli
 Version:	4.14.3
-Release:	1
+Release:	2
 Epoch:		1
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
