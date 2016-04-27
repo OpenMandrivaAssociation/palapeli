@@ -1,6 +1,6 @@
 Name:		palapeli
-Version:	15.12.3
-Release:	2
+Version:	16.04.0
+Release:	1
 Epoch:		1
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
