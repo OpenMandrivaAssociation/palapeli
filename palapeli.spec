@@ -1,12 +1,13 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
-Version:	16.12.2
+Version:	17.04.0
 Release:	1
 Epoch:		1
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://www.kde.org/applications/games/palapeli/
-Source:		http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	libkdegames-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	cmake(KDEGames)
@@ -17,13 +18,14 @@ are not limited to aligning pieces on imaginary grids. The pieces are
 freely moveable. Also, Palapeli features real persistency, i.e. everything
 you do is saved on your disk immediately.
 
-%files
+%files -f %{name}.lang
 %{_bindir}/palapeli                                                                                    
 %{_libdir}/kde4/palapeli_jigsawslicer.so                                                               
 %{_libdir}/kde4/palapeli_rectslicer.so                                                                 
 %{_libdir}/kde4/palathumbcreator.so                                                                    
 %{_libdir}/kde4/palapeli_goldbergslicer.so                                                             
-%{_datadir}/applications/kde4/palapeli.desktop                                                         
+%{_datadir}/applications/kde4/org.kde.palapeli.desktop                                                         
+%{_datadir}/apps/appdata/*.appdata.xml
 %{_datadir}/apps/palapeli                                                                              
 %{_iconsdir}/hicolor/*/*/*palapeli*                                                                    
 %{_datadir}/kde4/services/ServiceMenus/palapeli_servicemenu.desktop                                    
@@ -34,7 +36,6 @@ you do is saved on your disk immediately.
 %{_datadir}/kde4/servicetypes/libpala-slicerplugin.desktop                                             
 %{_datadir}/mime/packages/palapeli-mimetypes.xml                                                       
 %{_datadir}/config/palapeli-collectionrc                                                               
-%doc %{_docdir}/HTML/en/palapeli   
 
 #------------------------------------------------------------------------------
 
@@ -81,4 +82,4 @@ This package provides development files for Palapeli.
 
 %install
 %makeinstall_std -C build
-
+%find_lang %{name} --with-html
