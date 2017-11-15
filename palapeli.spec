@@ -1,6 +1,6 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
-Version:	17.04.2
+Version:	17.08.3
 Release:	1
 Epoch:		1
 Summary:	Jigsaw puzzle game
@@ -25,7 +25,7 @@ you do is saved on your disk immediately.
 %{_libdir}/kde4/palathumbcreator.so                                                                    
 %{_libdir}/kde4/palapeli_goldbergslicer.so                                                             
 %{_datadir}/applications/kde4/org.kde.palapeli.desktop                                                         
-%{_datadir}/apps/appdata/*.appdata.xml
+%{_datadir}/metainfo/*.appdata.xml
 %{_datadir}/apps/palapeli                                                                              
 %{_iconsdir}/hicolor/*/*/*palapeli*                                                                    
 %{_datadir}/kde4/services/ServiceMenus/palapeli_servicemenu.desktop                                    
