@@ -1,6 +1,6 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
-Version:	17.08.3
+Version:	17.11.90
 Release:	1
 Epoch:		1
 Summary:	Jigsaw puzzle game
@@ -8,9 +8,11 @@ Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://www.kde.org/applications/games/palapeli/
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	libkdegames-devel
-BuildRequires:	kdelibs-devel
-BuildRequires:	cmake(KDEGames)
+BuildRequires:	cmake cmake(ECM) ninja
+BuildRequires:	cmake(KF5Archive) cmake(KF5Completion) cmake(KF5Config) cmake(KF5ConfigWidgets)
+BuildRequires:	cmake(KF5CoreAddons) cmake(KF5Crash) cmake(KF5I18n) cmake(KF5ItemViews)
+BuildRequires:	cmake(KF5KIO) cmake(KF5Notifications) cmake(KF5Service) cmake(KF5WidgetsAddons)
+BuildRequires:	cmake(KF5XmlGui) cmake(Qt5Core) cmake(Qt5Gui) cmake(Qt5Svg) cmake(Qt5Widgets)
 
 %description
 Palapeli is a jigsaw puzzle game. Unlike other games in that genre, you
@@ -19,23 +21,25 @@ freely moveable. Also, Palapeli features real persistency, i.e. everything
 you do is saved on your disk immediately.
 
 %files -f %{name}.lang
+%{_sysconfdir}/xdg/palapeli-collectionrc
 %{_bindir}/palapeli                                                                                    
-%{_libdir}/kde4/palapeli_jigsawslicer.so                                                               
-%{_libdir}/kde4/palapeli_rectslicer.so                                                                 
-%{_libdir}/kde4/palathumbcreator.so                                                                    
-%{_libdir}/kde4/palapeli_goldbergslicer.so                                                             
-%{_datadir}/applications/kde4/org.kde.palapeli.desktop                                                         
+%{_libdir}/qt5/plugins/palapeli_jigsawslicer.so                                                               
+%{_libdir}/qt5/plugins/palapeli_rectslicer.so                                                                 
+%{_libdir}/qt5/plugins/palathumbcreator.so                                                                    
+%{_libdir}/qt5/plugins/palapeli_goldbergslicer.so                                                             
+%{_datadir}/applications/org.kde.palapeli.desktop                                                         
 %{_datadir}/metainfo/*.appdata.xml
-%{_datadir}/apps/palapeli                                                                              
+%{_datadir}/palapeli                                                                              
 %{_iconsdir}/hicolor/*/*/*palapeli*                                                                    
-%{_datadir}/kde4/services/ServiceMenus/palapeli_servicemenu.desktop                                    
-%{_datadir}/kde4/services/palapeli_goldbergslicer.desktop                                              
-%{_datadir}/kde4/services/palapeli_jigsawslicer.desktop                                                
-%{_datadir}/kde4/services/palapeli_rectslicer.desktop                                                  
-%{_datadir}/kde4/services/palathumbcreator.desktop                                                     
-%{_datadir}/kde4/servicetypes/libpala-slicerplugin.desktop                                             
+%{_datadir}/kservices5/ServiceMenus/palapeli_servicemenu.desktop                                    
+%{_datadir}/kservices5/palapeli_goldbergslicer.desktop                                              
+%{_datadir}/kservices5/palapeli_jigsawslicer.desktop                                                
+%{_datadir}/kservices5/palapeli_rectslicer.desktop                                                  
+%{_datadir}/kservices5/palathumbcreator.desktop                                                     
+%{_datadir}/kservicetypes5/libpala-slicerplugin.desktop                                             
 %{_datadir}/mime/packages/palapeli-mimetypes.xml                                                       
-%{_datadir}/config/palapeli-collectionrc                                                               
+%{_datadir}/knotifications5/palapeli.notifyrc
+%{_datadir}/kxmlgui5/palapeli
 
 #------------------------------------------------------------------------------
 
@@ -76,10 +80,9 @@ This package provides development files for Palapeli.
 %setup -q
 
 %build
-%cmake_kde4 \
-	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
-%make
+%cmake_kde5
+%ninja
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 %find_lang %{name} --with-html
