@@ -16,6 +16,7 @@ BuildRequires:	cmake(KF5XmlGui) cmake(Qt5Core) cmake(Qt5Gui) cmake(Qt5Svg) cmake
 BuildRequires:	cmake(Qt5Concurrent)
 BuildRequires:	cmake(KF5DocTools)
 BuildRequires:	cmake(KF5KDEGames)
+BuildRequires:	shared-mime-info
 
 %description
 Palapeli is a jigsaw puzzle game. Unlike other games in that genre, you
