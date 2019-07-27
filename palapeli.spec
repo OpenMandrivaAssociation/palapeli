@@ -1,6 +1,6 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
-Version:	19.04.3
+Version:	19.07.80
 Release:	1
 Epoch:		1
 Summary:	Jigsaw puzzle game
@@ -25,7 +25,7 @@ freely moveable. Also, Palapeli features real persistency, i.e. everything
 you do is saved on your disk immediately.
 
 %files -f %{name}.lang
-%{_sysconfdir}/xdg/palapeli.categories
+%{_datadir}/qlogging-categories5/palapeli.categories
 %{_sysconfdir}/xdg/palapeli-collectionrc
 %{_bindir}/palapeli                                                                                    
 %{_libdir}/qt5/plugins/palapeli_jigsawslicer.so                                                               
