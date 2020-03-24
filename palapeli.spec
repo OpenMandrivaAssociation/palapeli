@@ -8,6 +8,7 @@ Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://www.kde.org/applications/games/palapeli/
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Patch0:		palapeli-20.03.80-qt-5.15.patch
 BuildRequires:	cmake cmake(ECM) ninja
 BuildRequires:	cmake(KF5Archive) cmake(KF5Completion) cmake(KF5Config) cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5CoreAddons) cmake(KF5Crash) cmake(KF5I18n) cmake(KF5ItemViews)
@@ -82,7 +83,7 @@ This package provides development files for Palapeli.
 #------------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %cmake_kde5
