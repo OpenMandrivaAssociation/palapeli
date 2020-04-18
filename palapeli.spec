@@ -1,14 +1,13 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
-Version:	20.03.80
-Release:	2
+Version:	20.04.0
+Release:	1
 Epoch:		1
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://www.kde.org/applications/games/palapeli/
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
-Patch0:		palapeli-20.03.80-qt-5.15.patch
 BuildRequires:	cmake cmake(ECM) ninja
 BuildRequires:	cmake(KF5Archive) cmake(KF5Completion) cmake(KF5Config) cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5CoreAddons) cmake(KF5Crash) cmake(KF5I18n) cmake(KF5ItemViews)
