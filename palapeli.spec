@@ -1,6 +1,6 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
-Version:	20.12.3
+Version:	21.03.80
 Release:	1
 Epoch:		1
 Summary:	Jigsaw puzzle game
@@ -19,32 +19,28 @@ BuildRequires:	cmake(KF5KDEGames)
 BuildRequires:	shared-mime-info
 
 %description
-Palapeli is a jigsaw puzzle game. Unlike other games in that genre, you
-are not limited to aligning pieces on imaginary grids. The pieces are
-freely moveable. Also, Palapeli features real persistency, i.e. everything
-you do is saved on your disk immediately.
+Palapeli is a jigsaw puzzle game. Unlike other games in that genre, you are not
+limited to aligning pieces on imaginary grids. The pieces are freely moveable.
+Also, Palapeli features real persistency, i.e. everything you do is saved on
+your disk immediately.
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories5/palapeli.categories
 %{_sysconfdir}/xdg/palapeli-collectionrc
-%{_bindir}/palapeli                                                                                    
-%{_libdir}/qt5/plugins/palapeli_jigsawslicer.so                                                               
-%{_libdir}/qt5/plugins/palapeli_rectslicer.so                                                                 
-%{_libdir}/qt5/plugins/palathumbcreator.so                                                                    
-%{_libdir}/qt5/plugins/palapeli_goldbergslicer.so                                                             
-%{_datadir}/applications/org.kde.palapeli.desktop                                                         
+%{_bindir}/palapeli
+%{_libdir}/qt5/plugins/palathumbcreator.so
+%{_datadir}/applications/org.kde.palapeli.desktop
 %{_datadir}/metainfo/*.appdata.xml
-%{_datadir}/palapeli                                                                              
-%{_iconsdir}/hicolor/*/*/*palapeli*                                                                    
-%{_datadir}/kservices5/ServiceMenus/palapeli_servicemenu.desktop                                    
-%{_datadir}/kservices5/palapeli_goldbergslicer.desktop                                              
-%{_datadir}/kservices5/palapeli_jigsawslicer.desktop                                                
-%{_datadir}/kservices5/palapeli_rectslicer.desktop                                                  
-%{_datadir}/kservices5/palathumbcreator.desktop                                                     
-%{_datadir}/kservicetypes5/libpala-slicerplugin.desktop                                             
-%{_datadir}/mime/packages/palapeli-mimetypes.xml                                                       
+%{_datadir}/palapeli
+%{_iconsdir}/hicolor/*/*/*palapeli*
+%{_datadir}/kservices5/ServiceMenus/palapeli_servicemenu.desktop
+%{_datadir}/kservices5/palathumbcreator.desktop
+%{_datadir}/mime/packages/palapeli-mimetypes.xml
 %{_datadir}/knotifications5/palapeli.notifyrc
-%{_datadir}/kxmlgui5/palapeli
+%{_libdir}/qt5/plugins/palapelislicers/palapeli_goldbergslicer.so
+%{_libdir}/qt5/plugins/palapelislicers/palapeli_jigsawslicer.so
+%{_libdir}/qt5/plugins/palapelislicers/palapeli_rectslicer.so
+
 
 #------------------------------------------------------------------------------
 
@@ -74,10 +70,8 @@ This package provides development files for Palapeli.
 
 %files devel                                                                                           
 %{_includedir}/Pala                                                                                    
-%{_includedir}/libpala                                                                                 
 %{_libdir}/libpala.so                                                                                  
-# cmake files                                                                                          
-%{_libdir}/libpala  
+%{_libdir}/cmake/Pala
 
 #------------------------------------------------------------------------------
 
