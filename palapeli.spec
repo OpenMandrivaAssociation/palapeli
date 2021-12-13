@@ -1,6 +1,6 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
-Version:	21.08.3
+Version:	21.12.0
 Release:	1
 Epoch:		1
 Summary:	Jigsaw puzzle game
