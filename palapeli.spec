@@ -1,6 +1,6 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
-Version:	22.08.3
+Version:	22.12.0
 Release:	1
 Epoch:		1
 Summary:	Jigsaw puzzle game
@@ -28,13 +28,12 @@ your disk immediately.
 %{_datadir}/qlogging-categories5/palapeli.categories
 %{_sysconfdir}/xdg/palapeli-collectionrc
 %{_bindir}/palapeli
-%{_libdir}/qt5/plugins/palathumbcreator.so
 %{_datadir}/applications/org.kde.palapeli.desktop
+%{_libdir}/qt5/plugins/kf5/thumbcreator/palathumbcreator.so
+%{_datadir}/kio/servicemenus/palapeli_servicemenu.desktop
 %{_datadir}/metainfo/*.appdata.xml
 %{_datadir}/palapeli
 %{_iconsdir}/hicolor/*/*/*palapeli*
-%{_datadir}/kservices5/ServiceMenus/palapeli_servicemenu.desktop
-%{_datadir}/kservices5/palathumbcreator.desktop
 %{_datadir}/mime/packages/palapeli-mimetypes.xml
 %{_datadir}/knotifications5/palapeli.notifyrc
 %{_libdir}/qt5/plugins/palapelislicers/palapeli_goldbergslicer.so
