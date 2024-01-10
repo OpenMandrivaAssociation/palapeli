@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
 Version:	23.08.4
-Release:	2
+Release:	3
 Epoch:		1
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
