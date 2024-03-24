@@ -50,7 +50,7 @@ your disk immediately.
 #------------------------------------------------------------------------------
 
 %define pala_major 0
-%define libpala %mklibname pala %{pala_major}
+%define libpala %mklibname pala
 
 %package -n %{libpala}
 Summary:	Palapeli shared library
@@ -68,7 +68,6 @@ Palapeli shared library.
 Summary:	Development files for Palapeli
 Group:		Development/KDE and Qt
 Requires:	%{libpala} = %{EVRD}
-Conflicts:	kdegames4-devel < 1:4.9.80
 
 %description devel
 This package provides development files for Palapeli.
@@ -82,12 +81,12 @@ This package provides development files for Palapeli.
 
 %prep
 %autosetup -p1 -n palapeli-%{?git:%{gitbranchd}}%{!?git:%{version}}
-
-%build
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
-%ninja
+
+%build
+%ninja_build -C build
 
 %install
 %ninja_install -C build
