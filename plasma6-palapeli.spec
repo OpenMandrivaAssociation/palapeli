@@ -3,7 +3,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		plasma6-palapeli
-Version:	24.05.2
+Version:	24.08.0
 Release:	%{?git:0.%{git}.}1
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
@@ -31,6 +31,7 @@ Also, Palapeli features real persistency, i.e. everything you do is saved on
 your disk immediately.
 
 %files -f palapeli.lang
+%{_datadir}/qlogging-categories6/palapeli.renamecategories
 %{_datadir}/qlogging-categories6/palapeli.categories
 %{_sysconfdir}/xdg/palapeli-collectionrc
 %{_bindir}/palapeli
