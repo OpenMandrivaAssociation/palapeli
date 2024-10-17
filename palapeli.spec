@@ -6,7 +6,7 @@ Epoch:		1
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
-URL:		http://www.kde.org/applications/games/palapeli/
+URL:		https://www.kde.org/applications/games/palapeli/
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake cmake(ECM) ninja
 BuildRequires:	cmake(KF5Archive) cmake(KF5Completion) cmake(KF5Config) cmake(KF5ConfigWidgets)
