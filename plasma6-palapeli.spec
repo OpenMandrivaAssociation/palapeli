@@ -8,7 +8,7 @@ Release:	%{?git:0.%{git}.}1
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
-URL:		http://www.kde.org/applications/games/palapeli/
+URL:		https://www.kde.org/applications/games/palapeli/
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/games/palapeli/-/archive/%{gitbranch}/palapeli-%{gitbranchd}.tar.bz2#/palapeli-%{git}.tar.bz2
 %else
