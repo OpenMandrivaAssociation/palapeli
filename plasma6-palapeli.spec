@@ -4,7 +4,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		plasma6-palapeli
 Version:	24.12.3
-Release:	%{?git:0.%{git}.}2
+Release:	%{?git:0.%{git}.}3
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
