@@ -3,7 +3,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		palapeli
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 Summary:	Jigsaw puzzle game
 Group:		Graphical desktop/KDE
@@ -24,13 +24,18 @@ BuildRequires:	cmake(KF6DocTools)
 BuildRequires:	cmake(KDEGames6)
 BuildRequires:	shared-mime-info
 
+%rename plasma6-palapeli
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+
 %description
 Palapeli is a jigsaw puzzle game. Unlike other games in that genre, you are not
 limited to aligning pieces on imaginary grids. The pieces are freely moveable.
 Also, Palapeli features real persistency, i.e. everything you do is saved on
 your disk immediately.
 
-%files -f palapeli.lang
+%files -f %{name}.lang
 %{_datadir}/qlogging-categories6/palapeli.renamecategories
 %{_datadir}/qlogging-categories6/palapeli.categories
 %{_sysconfdir}/xdg/palapeli-collectionrc
@@ -77,18 +82,3 @@ This package provides development files for Palapeli.
 %{_includedir}/Pala                                                                                    
 %{_libdir}/libpala.so                                                                                  
 %{_libdir}/cmake/Pala
-
-#------------------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n palapeli-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
-%find_lang palapeli --with-html
