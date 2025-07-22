@@ -74,6 +74,7 @@ Palapeli shared library.
 Summary:	Development files for Palapeli
 Group:		Development/KDE and Qt
 Requires:	%{libpala} = %{EVRD}
+%rename plasma6-palapeli-devel
 
 %description devel
 This package provides development files for Palapeli.
